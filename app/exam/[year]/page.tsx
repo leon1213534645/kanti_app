@@ -5,9 +5,8 @@ export async function generateStaticParams() {
   return listYears().map((year) => ({ year: String(year) }));
 }
 
-type Props = { params: { year: string } }; // <-- simple explicit type
-
-export default function ExamYear({ params }: Props) {
+// ⬇️ don't use PageProps; let Next infer, or use `any`
+export default function ExamYear({ params }: any) {
   const exam = getExam(params.year);
   return (
     <main className="center-screen">

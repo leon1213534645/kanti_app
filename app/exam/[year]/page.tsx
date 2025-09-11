@@ -5,8 +5,10 @@ export async function generateStaticParams() {
   return listYears().map((year) => ({ year: String(year) }));
 }
 
-export default function ExamYear({ params }: { params: { year: string } }) {
-  const exam = getExam(params.year); // server-side read
+type Props = { params: { year: string } }; // <-- simple explicit type
+
+export default function ExamYear({ params }: Props) {
+  const exam = getExam(params.year);
   return (
     <main className="center-screen">
       <div className="container" style={{ textAlign: "left" }}>

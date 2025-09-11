@@ -14,11 +14,9 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default function QuestionPage({
-  params,
-}: {
-  params: { year: string; number: string };
-}) {
+type Props = { params: { year: string; number: string } }; // <-- simple type
+
+export default function QuestionPage({ params }: Props) {
   const q = getQuestion(params.year, params.number);
   const exam = getExam(params.year);
 
@@ -61,7 +59,6 @@ export default function QuestionPage({
           />
         </div>
 
-        {/* Client-side toggle lives in its own component */}
         <AnswerBlock answer={q.answer} />
 
         <div style={{ display: "flex", gap: 12, marginTop: 16 }}>

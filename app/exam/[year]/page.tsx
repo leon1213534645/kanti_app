@@ -5,9 +5,13 @@ export async function generateStaticParams() {
   return listYears().map((year) => ({ year: String(year) }));
 }
 
-// ⬇️ don't use PageProps; let Next infer, or use `any`
-export default function ExamYear({ params }: any) {
+export default function ExamYear({
+  params,
+}: {
+  params: { year: string };
+}) {
   const exam = getExam(params.year);
+
   return (
     <main className="center-screen">
       <div className="container" style={{ textAlign: "left" }}>

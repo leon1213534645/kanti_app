@@ -7,13 +7,18 @@ export async function generateStaticParams() {
   const out: { year: string; number: string }[] = [];
   years.forEach((y) => {
     const exam = getExam(y);
-    exam.questions.forEach((q) => out.push({ year: String(y), number: String(q.number) }));
+    exam.questions.forEach((q) =>
+      out.push({ year: String(y), number: String(q.number) })
+    );
   });
   return out;
 }
 
-// ⬇️ don't use PageProps; let Next infer, or use `any`
-export default function QuestionPage({ params }: any) {
+export default function QuestionPage({
+  params,
+}: {
+  params: { year: string; number: string };
+}) {
   const q = getQuestion(params.year, params.number);
   const exam = getExam(params.year);
 
@@ -43,7 +48,6 @@ export default function QuestionPage({ params }: any) {
 
         {q.image && (
           <div className="card" style={{ marginTop: 12 }}>
-            {/* Warning about <img> is fine, but you can switch to next/image later */}
             <img src={q.image} alt={`Q${q.number} prompt`} style={{ maxWidth: "100%" }} />
           </div>
         )}

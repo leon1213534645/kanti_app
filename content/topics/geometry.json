@@ -1,0 +1,9 @@
+{
+  "slug": "geometry",
+  "label": "Geometrie (Geometry)",
+  "summary": "Flächen/Umfang: Dreieck A=(b·h)/2, Rechteck A=a·b, Kreis A=πr². Häufige Einheitenumrechnungen.",
+  "recommended": [
+    { "year": 2023, "number": 2 }
+  ],
+  "extraExercises": []
+}

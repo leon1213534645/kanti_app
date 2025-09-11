@@ -1,0 +1,22 @@
+{
+  "year": 2023,
+  "questions": [
+    {
+      "number": 1,
+      "topic": "fractions",
+      "title": "Bruchteil",
+      "prompt": "Wie viel ist 3/4 von 120?",
+      "video": "https://www.youtube.com/embed/nMAhL56Fqxk?si=99yJO3HTgDAwiZAY",
+      "answer": "90"
+    },
+    {
+      "number": 2,
+      "topic": "geometry",
+      "title": "Dreiecksfläche",
+      "prompt": "Berechne die Fläche eines Dreiecks mit b = 6 und h = 8.",
+      "video": "https://www.youtube.com/embed/nMAhL56Fqxk?si=99yJO3HTgDAwiZAY",
+      "answer": "24"
+    }
+  ]
+}
+

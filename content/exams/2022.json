@@ -1,0 +1,13 @@
+{
+  "year": 2022,
+  "questions": [
+    {
+      "number": 1,
+      "topic": "arithmetic",
+      "title": "Prozentrechnung",
+      "prompt": "Wie viel sind 15% von 260?",
+      "video": "https://www.youtube.com/embed/nMAhL56Fqxk?si=99yJO3HTgDAwiZAY",
+      "answer": "39"
+    }
+  ]
+}

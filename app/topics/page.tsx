@@ -10,13 +10,10 @@ export default function TopicsIndex() {
         <ul style={{ marginTop: 12, paddingLeft: 18, lineHeight: 1.9 }}>
           {topics.map(t => (
             <li key={t.slug}>
-              <Link href={`/topics/${t.slug}`}>{t.label}</Link>
+              <Link href={`/topics/${t.slug}`}>{t.chapter} — {t.label}</Link>
             </li>
           ))}
         </ul>
-        <div style={{ marginTop: 16 }}>
-          <Link href="/" className="btn">← Zur Startseite</Link>
-        </div>
       </div>
     </main>
   );

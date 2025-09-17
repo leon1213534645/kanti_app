@@ -7,20 +7,24 @@ export async function generateStaticParams() {
 
 export default function TopicLanding({ params }: { params: { slug: string }}) {
   const topic = getTopic(params.slug);
-  if (!topic) {
-    return <main className="center-screen"><div className="container"><h1>Thema nicht gefunden</h1></div></main>;
-  }
+  if (!topic) return <main className="center-screen"><div className="container"><h1>Not found</h1></div></main>;
 
   return (
     <main className="center-screen">
       <div className="container" style={{ textAlign: "left" }}>
-        <h1>{topic.label}</h1>
+        <h1>{topic.chapter} — {topic.label}</h1>
+
+        {/* Bullet-point Lernziele */}
         <div className="card" style={{ marginTop: 12 }}>
-          <p>{topic.summary}</p>
+          <h2 style={{ marginBottom: 8 }}>Lernziele</h2>
+          <ul style={{ paddingLeft: 18, lineHeight: 1.9 }}>
+            {topic.objectives.map((o, i) => <li key={i}>{o}</li>)}
+          </ul>
         </div>
 
         <div className="btn-row" style={{ marginTop: 16 }}>
           <Link href={`/topics/${topic.slug}/summary`} className="btn">Zusammenfassung</Link>
+          <Link href={`/topics/${topic.slug}/past-exams`} className="btn">Übungen aus Altklaussuren</Link>
           <Link href={`/topics/${topic.slug}/exercises`} className="btn">Übungen</Link>
         </div>
 

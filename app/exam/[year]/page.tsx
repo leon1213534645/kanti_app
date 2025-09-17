@@ -1,16 +1,20 @@
 import Link from "next/link";
 import { getExam, listYears } from "@/lib/exams";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function unwrapParams(params: any): Promise<any> | any {
+  return (params && typeof params.then === "function") ? params : Promise.resolve(params);
+}
+
 export async function generateStaticParams() {
   return listYears().map((year) => ({ year: String(year) }));
 }
 
-export default function ExamYear({
-  params,
-}: {
-  params: { year: string };
-}) {
-  const exam = getExam(params.year);
+export default async function ExamYear({ params }: any) {
+  const p = await unwrapParams(params);
+  const year = String(p.year);
+
+  const exam = getExam(year);
 
   return (
     <main className="center-screen">

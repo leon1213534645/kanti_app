@@ -10,6 +10,11 @@ export async function generateStaticParams() {
   return listYears().map((year) => ({ year: String(year) }));
 }
 
+export function generateMetadata({ params }:{ params:{year:string}}){
+  return { title: `Preparis – Aufnahmeprüfung ${params.year}`, description: `Fragen & Videoerklärungen ${params.year}.` };
+}
+
+
 export default async function ExamYear({ params }: any) {
   const p = await unwrapParams(params);
   const year = String(p.year);

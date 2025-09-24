@@ -33,6 +33,9 @@ export default async function QuestionPage({ params }: any) {
     );
   }
 
+
+
+
   const idx = exam.questions.findIndex((x) => x.number === q.number);
   const prev = exam.questions[idx - 1]?.number;
   const next = exam.questions[idx + 1]?.number;

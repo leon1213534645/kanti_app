@@ -11,6 +11,7 @@ export type Topic = {
   summary?: { sections: TopicSummarySection[] }; // shown on /summary
   recommended?: TopicRef[];
   extraExercises?: { id: string; prompt: string; answer: string; video: string }[]; // shown on /exercises
+  qa?: [];
 };
 
 const topicsDir = path.join(process.cwd(), "content", "topics");

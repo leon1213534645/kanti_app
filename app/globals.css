@@ -87,7 +87,7 @@ body {
 }
 
 .navbar {
-  max-width: 1000px;
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -112,9 +112,73 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #333;
+  color: #2563eb;
   padding: 8px 10px;
   border-radius: 10px;
   font-weight: 600;
 }
 .nav-link:hover { background: #f6f6f6; }
+
+/* keep sidebar readable and sticky spacing right */
+.topic-sidebar a { color: #5284ff; }
+.topic-sidebar a:hover { text-decoration: underline; }
+@media (max-width: 900px) {
+  /* stack on mobile */
+  main.container { display: block !important; }
+  .topic-sidebar { position: static !important; margin-bottom: 16px; }
+}
+
+
+/* Wide container only for topics pages */
+.container-wide {
+  width: 100%;
+  max-width: 1800px;        /* was probably ~720px */
+  margin: 0 auto;           /* keep centered overall */
+  padding: 0 16px;          /* small side padding */
+}
+
+/* Two-column shell: left sidebar + content */
+.topic-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .topic-shell { grid-template-columns: 1fr; }
+}
+
+/* --- orange video button --- */
+.btn-video {
+  display:inline-flex; align-items:center; gap:.5rem;
+  border-radius:9999px; padding:.5rem 1rem; font-weight:700;
+  background: linear-gradient(180deg,#029e1c,#029e1c);
+  color:white; box-shadow:0 1px 0 rgba(0,0,0,.15) inset;
+}
+.btn-video:hover { filter: brightness(0.95); }
+
+/* --- info boxes (summary) --- */
+.info {
+  border:2px solid #2f7cff; background:#f3f8ff; border-radius:10px;
+  padding:12px 14px; position:relative;
+}
+.info::before{
+  content:attr(data-label);
+  position:absolute; top:-12px; left:10px; font-weight:700;
+  background:#2f7cff; color:#fff; padding:2px 8px; border-radius:6px;
+  font-size:.85rem;
+}
+
+/* different colors for the pill */
+.info--merke::before   { background:#2f7cff; }
+.info--beispiel::before{ background:#8b5cf6; }
+.info--regel::before   { background:#10b981; }
+.info--tipp::before    { background:#f59e0b; }
+
+.info--merke   { border-color:#2f7bff; background:#2f7cff; color:#fff;}
+.info--beispiel{ border-color:#8b5cf6; background:#cabbec; color:#000000;}
+.info--regel   { border-color:#10b981; background:#10b981; color:#fff;}
+.info--tipp    { border-color:#f59e0b; background:#f59e0b; color:#fff;}
+
+/* thin grid already from previous step; keep */

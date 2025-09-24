@@ -34,15 +34,22 @@
           {
             "text": "3. Nach x auflösen."
           },
-          {
-          "text": "Beispiel:    2x+3=9 / -3", "pre": true
-          },
-          {
-            "text": "             2x=6 / :2", "pre": true
-          },
-          {
-            "text": "             x=3", "pre": true
-          }
+          {"box": { "type": "beispiel", "title": "Beispiel" },
+          "paras": [
+            {
+              "text": "Gleichung: 2x + 3 = 9   / -3"
+            },
+            {
+              "text": "           2x = 6       / :2"
+            },
+            {
+              "text": "           x = 3"
+            } 
+              ],
+              "video": ""
+        
+        }
+
           
         ]
       },
@@ -52,10 +59,16 @@
         "paras": [
           "Um die Richtigkeit einer Lösung zu überprüfen, setzt man den gefundenen Wert in die ursprüngliche Gleichung ein. Ergibt sich dabei eine wahre Aussage, ist die Lösung korrekt.",
           "Beispiel (von oben):",
-          {"text": "               2x + 3 = 9      / x=3", "pre": true},
+          {
+            "box": { "type": "beispiel", "title": "Beispiel" },
+            "paras": [
+              {"text": "               2x + 3 = 9      / x=3", "pre": true},
           {"text": "               2 * 3 + 3 = 9   / x=3", "pre": true},
           {"text": "               9 = 9           / x=3", "pre": true},
           "Da 9=9 eine wahre Aussage ist, gilt die gefundene Lösung als richtig."
+            ],
+            "video": ""
+          }
       ]
 
       },
@@ -63,22 +76,32 @@
         "id": "8.4",
         "title": "Textaufgaben mit Gleichungen lösen",
         "paras": [
+        
         {
-          "text": "Um eine Textaufgabe mit einer Gleichung zu lösen, übersetzt man den Text in eine mathematische Form, führt eine Variable ein, stellt die passende Gleichung auf und berechnet anschliessend die Lösung."
-        },
+          "box": { "type": "beispiel", "title": "Beispiel" },
+          "paras": [
+            { 
+              "text": "Anna denkt sich eine Zahl. Wenn man 5 dazu addiert, erhält man 12."
+            },
+            {
+              "text": "Gleichung: x + 5 = 12   / -5",
+              "pre": true
+            },
+            {
+              "text": "           x = 7",
+              "pre": true
+            } 
+              ],
+              "video": ""   
+            },
+            {
+              "text": "Um eine Textaufgabe mit einer Gleichung zu lösen, übersetzt man den Text in eine mathematische Form, führt eine Variable ein, stellt die passende Gleichung auf und berechnet anschliessend die Lösung."
+            },
         {
-          "text": "Beispiel 1: Anna denkt sich eine Zahl. Wenn man 5 dazu addiert, erhält man 12."
-        },
-        {
-          "text": "Gleichung: x + 5 = 12   / -5",
-          "pre": true
-        },
-        {
-          "text": "           x = 7",
-          "pre": true
-        },
-        {
-          "text": "Beispiel 2: Ein Kino verkauft 120 Tickets, Erwachsene zahlen 12 CHF, Kinder 8 CHF. Insgesamt 1240 CHF eingenommen. Wie viele Kinder?"
+          "box": { "type": "beispiel", "title": "Beispiel" },
+          "paras": [
+             {
+          "text": "Ein Kino verkauft 120 Tickets, Erwachsene zahlen 12 CHF, Kinder 8 CHF. Insgesamt 1240 CHF eingenommen. Wie viele Kinder?"
         },
         {
           "text": "Gleichung: 12x + 8(120 − x) = 1240",
@@ -112,7 +135,11 @@
             { "text": "50 Kinder", "bold": true },
             { "text": "." }
           ]
+        } 
+          ],
+          "video": ""   
         }
+        
         ]
       },
       {
@@ -122,8 +149,10 @@
           {
             "text": "Das Ziel beim Umstellen von Formeln ist es, eine bestimmte Variable zu isolieren; dabei geht man im Prinzip genauso vor wie beim Lösen einer Gleichung."
           },
+          { "box": { "type": "beispiel", "title": "Beispiel" } ,
+            "paras": [
           {
-            "text": "Beispiel: Formel U = 2⋅(a+b) nach a um:"
+            "text": "Formel U = 2⋅(a+b) nach a um:"
           },
           {
             "text": "U = 2a + 2b",
@@ -139,26 +168,35 @@
               { "text": " = a" }
             ]
           }
+            ],
+            "video": ""
+        }
+
         ]
       }
 
     ]
   },
   "recommended": [
-    { "year": 2023, "number": 1 }
+    { "year": 2023, "number": 1 },
+    { "year": 2023, "number": 2 }
   ],
   "extraExercises": [
-    { "id": "frac-001", "prompt": "51=3(2a+4)−7", "answer": "40", "video": "" },
-    { "id": "frac-002", "prompt": "10−6(4b−3)=-32", "answer": "40", "video": "" },
-    { "id": "frac-003", "prompt": "7(c−5)=0", "answer": "40", "video": "" },
-    { "id": "frac-004", "prompt": "36=6(2d+5)", "answer": "40", "video": "" },
-    { "id": "frac-005", "prompt": "3(2+4e)= 45", "answer": "40", "video": "" },
-    { "id": "frac-006", "prompt": "9f+(5f−8)=31", "answer": "40", "video": "" },
-    { "id": "frac-007", "prompt": "40=2(6g−9)+10g", "answer": "40", "video": "" },
-    { "id": "frac-008", "prompt": "h+15=3h−9", "answer": "40", "video": "" },
-    { "id": "frac-009", "prompt": "30=2(i+6)−8", "answer": "40", "video": "" },
-    { "id": "frac-010", "prompt": "12=6+3(2j−5)", "answer": "40", "video": "" },
-    { "id": "frac-011", "prompt": "5k−(3k−7)=−11", "answer": "40", "video": "" },
-    { "id": "frac-012", "prompt": "4(8m−3)+6=38", "answer": "40", "video": "" }
+    { "id": "frac-001", "prompt": "51=3(2a+4)−7", "answer": "23/3", "video": "" },
+    { "id": "frac-002", "prompt": "10−6(4b−3)=-32", "answer": "2.5", "video": "" },
+    { "id": "frac-003", "prompt": "7(c−5)=0", "answer": "5", "video": "" },
+    { "id": "frac-004", "prompt": "36=6(2d+5)", "answer": "0.5", "video": "" },
+    { "id": "frac-005", "prompt": "3(2+4e)= 45", "answer": "13/4", "video": "" },
+    { "id": "frac-006", "prompt": "9f+(5f−8)=31", "answer": "39/14", "video": "" },
+    { "id": "frac-007", "prompt": "40=2(6g−9)+10g", "answer": "29/11", "video": "" },
+    { "id": "frac-008", "prompt": "h+15=3h−9", "answer": "12", "video": "" },
+    { "id": "frac-009", "prompt": "30=2(i+6)−8", "answer": "13", "video": "" },
+    { "id": "frac-010", "prompt": "12=6+3(2j−5)", "answer": "7/2", "video": "" },
+    { "id": "frac-011", "prompt": "5k−(3k−7)=−11", "answer": "-9", "video": "" },
+    { "id": "frac-012", "prompt": "4(8m−3)+6=38", "answer": "11/8", "video": "" }
+  ],
+  "qa": [
+  { "q": "Wie löse ich 2x+3=11?", "a": "Zuerst 3 subtrahieren, dann durch 2 teilen → x=4" }
   ]
+
 }

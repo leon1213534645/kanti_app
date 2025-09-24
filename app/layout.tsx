@@ -14,14 +14,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="site-header">
           <div className="navbar">
             {/* Logo/brand always links home */}
-            <Link href="/" className="brand" aria-label="Preparis – Home">
-              Preparis
+            <Link href="/" className="brand" aria-label="Prepadis – Home">
+              Prepadis
             </Link>
           </div>
         </header>
 
         {/* Page-specific content */}
         {children}
+
+
       </body>
     </html>
   );

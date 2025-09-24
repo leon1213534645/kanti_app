@@ -78,11 +78,18 @@ export async function GET(req: Request) {
     const slug = clean(searchParams.get("slug"));
     if (!slug) return NextResponse.json({ items: [] });
 
-    // Filter by field IDs: Status='Answered' AND Slug='<slug>'
     const formula = `AND({${F.Slug}}='${slug}', {${F.Status}}='Answered')`;
-    const query = `filterByFormula=${encodeURIComponent(formula)}&maxRecords=50`;
+
+    // ask Airtable to return fields keyed by FIELD ID
+    const query =
+      `filterByFormula=${encodeURIComponent(formula)}` +
+      `&returnFieldsByFieldId=true` +
+      // (optional but efficient) only fetch the fields you need
+      `&fields[]=${F.Question}&fields[]=${F.Answer}&fields[]=${F.Created}&fields[]=${F.Email}` +
+      `&maxRecords=50`;
 
     const data = await at("GET", undefined, query);
+
     const items = (data.records || []).map((r: any) => ({
       id: r.id,
       q: r.fields?.[F.Question] || "",
@@ -90,9 +97,11 @@ export async function GET(req: Request) {
       when: r.fields?.[F.Created] || "",
       by: r.fields?.[F.Email] || "",
     }));
+
     return NextResponse.json({ items });
   } catch (err: any) {
     console.error("GET tutor-questions:", err?.message || err);
     return NextResponse.json({ error: err?.message || "failed" }, { status: 500 });
   }
 }
+

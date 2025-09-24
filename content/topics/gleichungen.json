@@ -62,9 +62,9 @@
           {
             "box": { "type": "beispiel", "title": "Beispiel" },
             "paras": [
-              {"text": "               2x + 3 = 9      / x=3", "pre": true},
-          {"text": "               2 * 3 + 3 = 9   / x=3", "pre": true},
-          {"text": "               9 = 9           / x=3", "pre": true},
+              {"text": "Gleichung:               2x + 3 = 9      / x=3", "pre": true},
+          {"text": "               2 * 3 + 3 = 9    ", "pre": true},
+          {"text": "               9 = 9           ", "pre": true},
           "Da 9=9 eine wahre Aussage ist, gilt die gefundene Lösung als richtig."
             ],
             "video": ""

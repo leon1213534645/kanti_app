@@ -1,26 +1,30 @@
 import { NextResponse } from "next/server";
 
-const AT_KEY   = process.env.AIRTABLE_API_KEY;
-const AT_BASE  = process.env.AIRTABLE_BASE_ID;
-const AT_TABLE = process.env.AIRTABLE_TABLE_NAME || "Questions";
+// ── Env ────────────────────────────────────────────────────────────────────────
+const AT_KEY   = process.env.AIRTABLE_API_KEY!;
+const AT_BASE  = process.env.AIRTABLE_BASE_ID!;              // e.g. appprC0WqHOZHncdD
+const AT_TABLE = process.env.AIRTABLE_TABLE_NAME || "Questions"; // or table id: tbleRU6pukRgnmBBI
 
-if (!AT_KEY || !AT_BASE) {
-  console.warn("Airtable env missing. KEY or BASE not set.");
-}
+// Build URL
+const AT_URL = `https://api.airtable.com/v0/${AT_BASE}/${encodeURIComponent(AT_TABLE)}`;
 
-const AT_URL = AT_BASE && AT_TABLE
-  ? `https://api.airtable.com/v0/${AT_BASE}/${encodeURIComponent(AT_TABLE)}`
-  : "";
+// ── Your field IDs (from your screenshot) ─────────────────────────────────────
+const F = {
+  Slug: "fldD1EPK29l2UZe58",
+  Question: "fldGLXJSgQkjf24la",
+  Answer: "fldnk068KnJhd6ezZ",
+  Status: "fldOtzzZ1md1kZESI",
+  Created: "fld2ge6eVLsFD66T9",
+  Email: "fldJdRGy58hVMOKui",
+};
 
-async function at(method: "GET" | "POST", body?: any, query?: string) {
-  if (!AT_URL) throw new Error("Airtable not configured (missing env).");
+function clean(x: unknown) { return typeof x === "string" ? x.trim() : ""; }
+
+async function at(method: "GET"|"POST", body?: any, query?: string) {
   const url = query ? `${AT_URL}?${query}` : AT_URL;
   const res = await fetch(url, {
     method,
-    headers: {
-      Authorization: `Bearer ${AT_KEY}`,
-      "Content-Type": "application/json",
-    },
+    headers: { Authorization: `Bearer ${AT_KEY}`, "Content-Type": "application/json" },
     body: body ? JSON.stringify(body) : undefined,
     cache: "no-store",
   });
@@ -31,45 +35,39 @@ async function at(method: "GET" | "POST", body?: any, query?: string) {
   return res.json();
 }
 
-function clean(x: unknown) {
-  return typeof x === "string" ? x.trim() : "";
-}
-
-// POST /api/tutor-questions  { slug, q, email? }
+// POST /api/tutor-questions   body: { slug, q, email? }
 export async function POST(req: Request) {
   try {
     const { slug, q, email } = await req.json();
     const _slug = clean(slug);
-    const _q = clean(q);
-    const _email = clean(email);
+    const _q    = clean(q);
+    const _em   = clean(email);
 
     if (!_slug || !_q) {
       return NextResponse.json({ error: "slug and q required" }, { status: 400 });
-    }
-    if (_q.length > 2000) {
-      return NextResponse.json({ error: "question too long" }, { status: 400 });
     }
 
     const payload = {
       records: [
         {
+          // use field IDs so names can change safely
           fields: {
-            slug: _slug,
-            question: _q,
-            status: "New",
-            ...( _email ? { email: _email } : {} ),
+            [F.Slug]: _slug,
+            [F.Question]: _q,
+            [F.Status]: "New",
+            ...( _em ? { [F.Email]: _em } : {} ),
           },
         },
       ],
-      typecast: true,
+      typecast: true, // allows creating the 'New' select option if missing
     };
 
     const data = await at("POST", payload);
     const id = data?.records?.[0]?.id ?? null;
     return NextResponse.json({ id }, { status: 201 });
   } catch (err: any) {
-    console.error("POST /tutor-questions error:", err.message);
-    return NextResponse.json({ error: err.message ?? "failed" }, { status: 500 });
+    console.error("POST tutor-questions:", err?.message || err);
+    return NextResponse.json({ error: err?.message || "failed" }, { status: 500 });
   }
 }
 
@@ -80,21 +78,21 @@ export async function GET(req: Request) {
     const slug = clean(searchParams.get("slug"));
     if (!slug) return NextResponse.json({ items: [] });
 
-    // If you don't have 'created_at', we won't sort by it
-    const filter = encodeURIComponent(`AND({slug}='${slug}', {status}='Answered')`);
-    const query = `filterByFormula=${filter}&maxRecords=50`;
+    // Filter by field IDs: Status='Answered' AND Slug='<slug>'
+    const formula = `AND({${F.Slug}}='${slug}', {${F.Status}}='Answered')`;
+    const query = `filterByFormula=${encodeURIComponent(formula)}&maxRecords=50`;
 
     const data = await at("GET", undefined, query);
     const items = (data.records || []).map((r: any) => ({
       id: r.id,
-      q: r.fields?.question ?? "",
-      a: r.fields?.answer ?? "",
-      when: r.fields?.created_at ?? "",  // will be empty if field not present
-      by: r.fields?.answered_by ?? "",
+      q: r.fields?.[F.Question] || "",
+      a: r.fields?.[F.Answer] || "",
+      when: r.fields?.[F.Created] || "",
+      by: r.fields?.[F.Email] || "",
     }));
     return NextResponse.json({ items });
   } catch (err: any) {
-    console.error("GET /tutor-questions error:", err.message);
-    return NextResponse.json({ error: err.message ?? "failed" }, { status: 500 });
+    console.error("GET tutor-questions:", err?.message || err);
+    return NextResponse.json({ error: err?.message || "failed" }, { status: 500 });
   }
 }

@@ -5,6 +5,7 @@ import VideoToggle from "@/components/VideoToggle";
 import Collapse from "@/components/Collapse";
 import AskAI from "@/components/AskAI";
 import AskTutor from "@/components/AskTutor";
+import AskAIChat from "@/components/AskAIChat";
 
 
 
@@ -43,6 +44,7 @@ export default function ExerciseTask({ params }: { params: { slug: string; id: s
 
       <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
         <AskAI context={{ type: "summary", slug: topic.slug }} />
+        <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}`, exercise: `Übung ${ex.id}` }} />
       </Collapse>
 
 <Collapse title={<><span>💬</span> Tutor/in fragen</>} defaultOpen={false}>

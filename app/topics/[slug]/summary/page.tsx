@@ -4,6 +4,8 @@ import VideoToggle from "@/components/VideoToggle";
 import Collapse from "@/components/Collapse";
 import AskAI from "@/components/AskAI";
 import AskTutor from "@/components/AskTutor";
+import AskAIChat from "@/components/AskAIChat";
+
 
 export async function generateStaticParams() {
   return listTopics().map(t => ({ slug: t.slug }));
@@ -135,6 +137,7 @@ export default function TopicSummary({ params }: { params: { slug: string }}) {
     ))}
     <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
     <AskAI context={{ type: "summary", slug: topic.slug }} />
+    <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}` }} />
     </Collapse>
 
 <Collapse title={<><span>💬</span> Tutor/in fragen</>} defaultOpen={false}>

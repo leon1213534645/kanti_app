@@ -53,7 +53,6 @@ export default function PastItem({ params }: { params: { slug: string; id: strin
       <TaskNav prevHref={prev} nextHref={next} backHref={`/topics/${topic.slug}`} />
 
       <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
-        <AskAI context={{ type: "summary", slug: topic.slug }} />
         <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}`, exercise: `Altklausur ${ref.year} – Q${ref.number}` }} />
       </Collapse>
 

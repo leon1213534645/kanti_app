@@ -28,11 +28,17 @@ export default function AskAIChat({
     setSending(true);
     try {
       const res = await fetch("/api/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next, context }),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: next, context }),
       });
       const json = await res.json();
+      if (json.error) {
+      setMessages(m => [...m, { role: "assistant", content: `Fehler: ${json.error}` }]);
+      } else {
+      const reply = json.reply ?? "Hmm, keine Antwort erhalten.";
+      setMessages(m => [...m, { role: "assistant", content: reply }]);
+      }
       const reply = json.reply ?? "Hmm, keine Antwort erhalten.";
       setMessages(m => [...m, { role: "assistant", content: reply }]);
     } catch {

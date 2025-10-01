@@ -51,7 +51,7 @@ export default function TopicSidebar({
         <>
           <div style={{ fontWeight: 700, margin: "8px 0 6px" }}>Zusammenfassung:</div>
           <nav aria-label="Inhaltsverzeichnis">
-            <ul style={{ lineHeight: 1.8, paddingLeft: 16 }}>
+            <ul style={{ lineHeight: 1.8, paddingLeft: 0 }}>
               {toc.map((s) => (
                 <li key={s.id}>
                   <a className="underline" href={`#${s.id}`}>

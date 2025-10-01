@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export type TopicRef = { year: number; number: number };
+import { Variant } from "@/lib/exams";
+
+export type TopicRef = { year: number; variant: Variant; number: number };
 export type TopicSummarySection = { id: string; title: string; paras: string[] };
 export type Topic = {
   slug: string;

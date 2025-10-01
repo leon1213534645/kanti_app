@@ -3,11 +3,11 @@
 import { usePathname } from "next/navigation";
 import TopicSidebar from "@/components/TopicSidebar";
 import TaskSidebar, { TaskItem } from "@/components/TaskSidebar";
+import { getExam, Variant } from "@/lib/exams";
 
 type TocItem = { id: string; title: string };
 type Extra = { id: string; title?: string };
-type Rec = { year: number; number: number };
-
+type Rec = { year: number; number: number; variant?: Variant };
 export default function TopicLeftColumn({
   slug,
   chapter,
@@ -34,11 +34,11 @@ export default function TopicLeftColumn({
     href: `/topics/${slug}/exercises/${ex.id}`,
   }));
 
-  const pastItems: TaskItem[] = (recommended || []).map((r, i) => ({
-    id: `${r.year}-${r.number}`,
-    label: `Aufgabe ${i + 1}`, // or `${r.year} – Q${r.number}`
-    href: `/topics/${slug}/past-exams/${r.year}-${r.number}`,
-  }));
+const pastItems: TaskItem[] = (recommended || []).map((r, i) => ({
+  id: `${r.year}-${r.variant ?? "ohne"}-${r.number}`,
+  label: `Aufgabe ${i + 1}`,
+  href: `/topics/${slug}/past-exams/${r.year}-${r.variant ?? "ohne"}-${r.number}`,
+}));
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>

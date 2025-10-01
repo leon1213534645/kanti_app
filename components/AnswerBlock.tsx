@@ -1,8 +1,12 @@
 "use client";
 import { useState } from "react";
 
-export default function AnswerBlock({ answer }: { answer: string }) {
+export default function AnswerBlock({ answer }: { answer?: string }) {
   const [show, setShow] = useState(false);
+
+  if (!answer) {
+    return null; // no answer provided
+  }
 
   return (
     <>

@@ -42,11 +42,9 @@ export default function ExerciseTask({ params }: { params: { slug: string; id: s
 
       <TaskNav prevHref={prev} nextHref={next} backHref={`/topics/${topic.slug}`} />
 
-      <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
-        <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}`, exercise: `Übung ${ex.id}` }} />
-      </Collapse>
 
-<Collapse title={<><span>💬</span> Tutor/in fragen</>} defaultOpen={false}>
+
+<Collapse title={<><span>💬</span> Coach fragen</>} defaultOpen={false}>
   <AskTutor slug={topic.slug} />
 </Collapse>
 

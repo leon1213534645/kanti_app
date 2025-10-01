@@ -1,0 +1,3 @@
+    <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
+    <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}` }} />
+    </Collapse>

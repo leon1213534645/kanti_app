@@ -135,11 +135,9 @@ export default function TopicSummary({ params }: { params: { slug: string }}) {
 
       </section>
     ))}
-    <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
-    <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}` }} />
-    </Collapse>
 
-<Collapse title={<><span>💬</span> Tutor/in fragen</>} defaultOpen={false}>
+
+<Collapse title={<><span>💬</span> Coach fragen</>} defaultOpen={false}>
   <AskTutor slug={topic.slug} />
 </Collapse>
 

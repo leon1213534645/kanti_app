@@ -1,8 +1,11 @@
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react"; // ← use this import
+
+
 
 export const metadata = {
-  title: "Preparis",
+  title: "Prepadis",
   description: "Kanti Appenzell – Mathe Vorbereitung",
 };
 
@@ -23,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Page-specific content */}
         {children}
 
-
+      <Analytics/>
       </body>
     </html>
   );

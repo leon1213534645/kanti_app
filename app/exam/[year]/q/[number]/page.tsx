@@ -44,10 +44,10 @@ export default async function QuestionPage({ params }: any) {
     <main className="center-screen">
       <div className="container" style={{ textAlign: "left" }}>
         <Link href={`/exam/${year}`} className="btn" style={{ marginBottom: 12 }}>
-          ← Back to Exam {year}
+          ← Zurück zur Prüfung {year}
         </Link>
 
-        <h1 style={{ marginTop: 8 }}>Question {q.number} – {q.title}</h1>
+        <h1 style={{ marginTop: 8 }}>Fragen {q.number} – {q.title}</h1>
         <p style={{ color: "#555", marginTop: 8 }}>
           <strong>Prompt:</strong> {q.prompt}
         </p>
@@ -70,9 +70,9 @@ export default async function QuestionPage({ params }: any) {
         <AnswerBlock answer={q.answer} />
 
         <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-          <Link href={`/exam/${year}`} className="btn">← Back to list</Link>
-          {prev && <Link href={`/exam/${year}/q/${prev}`} className="btn">← Previous</Link>}
-          {next && <Link href={`/exam/${year}/q/${next}`} className="btn">Next →</Link>}
+          <Link href={`/exam/${year}`} className="btn">← Zurück zur Prüfung</Link>
+          {prev && <Link href={`/exam/${year}/q/${prev}`} className="btn">← Nächstes Kapitel</Link>}
+          {next && <Link href={`/exam/${year}/q/${next}`} className="btn">Vorheriges Kapitel →</Link>}
         </div>
       </div>
     </main>

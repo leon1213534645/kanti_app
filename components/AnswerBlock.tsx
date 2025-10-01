@@ -7,12 +7,12 @@ export default function AnswerBlock({ answer }: { answer: string }) {
   return (
     <>
       <button className="btn" onClick={() => setShow(v => !v)} style={{ marginTop: 12 }}>
-        {show ? "Hide Answer" : "Show Answer"}
+        {show ? "Antwort ausblenden" : "Antwort anzeigen"}
       </button>
 
       {show && (
         <div className="card" style={{ marginTop: 12 }}>
-          <p><strong>Solution:</strong> {answer}</p>
+          <p><strong>Antwort:</strong> {answer}</p>
         </div>
       )}
     </>

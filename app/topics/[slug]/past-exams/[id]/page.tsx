@@ -52,11 +52,9 @@ export default function PastItem({ params }: { params: { slug: string; id: strin
 
       <TaskNav prevHref={prev} nextHref={next} backHref={`/topics/${topic.slug}`} />
 
-      <Collapse title={<><span>✨</span> AI fragen</>} defaultOpen={false}>
-        <AskAIChat context={{ topic: `${topic.chapter} — ${topic.label}`, exercise: `Altklausur ${ref.year} – Q${ref.number}` }} />
-      </Collapse>
 
-<Collapse title={<><span>💬</span> Tutor/in fragen</>} defaultOpen={false}>
+
+<Collapse title={<><span>💬</span> Coach fragen</>} defaultOpen={false}>
   <AskTutor slug={topic.slug} />
 </Collapse>
 

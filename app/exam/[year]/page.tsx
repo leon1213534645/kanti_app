@@ -24,8 +24,8 @@ export default async function ExamYear({ params }: any) {
   return (
     <main className="center-screen">
       <div className="container" style={{ textAlign: "left" }}>
-        <h1>Exam {exam.year}</h1>
-        <h2 style={{ marginTop: 12 }}>Questions</h2>
+        <h1>Prüfung {exam.year}</h1>
+        <h2 style={{ marginTop: 12 }}>Fragen</h2>
         <ul style={{ marginTop: 8, paddingLeft: 18, lineHeight: 1.9 }}>
           {exam.questions.map((q) => (
             <li key={q.number}>
@@ -36,7 +36,7 @@ export default async function ExamYear({ params }: any) {
           ))}
         </ul>
         <div style={{ marginTop: 16 }}>
-          <Link href="/exam" className="btn">← Back to Exams</Link>
+          <Link href="/exam" className="btn">← Zurück zur Prüfungsliste</Link>
         </div>
       </div>
     </main>

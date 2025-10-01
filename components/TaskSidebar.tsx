@@ -1,3 +1,4 @@
+// components/TaskSidebar.tsx
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,15 +11,17 @@ export default function TaskSidebar({
   items,
 }: {
   title: string;
-  baseHref: string;          // e.g. `/topics/gleichungen/exercises`
-  items: TaskItem[];         // Aufgabe list
+  baseHref: string;
+  items: TaskItem[];
 }) {
   const pathname = usePathname();
 
   return (
     <aside style={{ position: "sticky", top: 16, alignSelf: "start" }}>
       <div style={{ fontWeight: 700, marginBottom: 8 }}>{title}</div>
-      <ul style={{ lineHeight: 1.9 }}>
+
+      {/* Remove the default UL indentation */}
+      <ul style={{ lineHeight: 1.9, listStyle: "none", paddingLeft: 0, margin: 0 }}>
         {items.map((it) => {
           const active = pathname === it.href;
           return (
@@ -33,8 +36,12 @@ export default function TaskSidebar({
           );
         })}
       </ul>
+
       <div style={{ marginTop: 12 }}>
-        <Link href={baseHref.replace(/\/(?:exercises|past-exams)(?:\/.*)?$/, "")} className="underline">
+        <Link
+          href={baseHref.replace(/\/(?:exercises|past-exams)(?:\/.*)?$/, "")}
+          className="underline"
+        >
           ← Zurück zum Thema
         </Link>
       </div>

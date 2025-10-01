@@ -1,22 +1,202 @@
 {
   "year": 2024,
+  "examTitle": "AP Mathematik 2024 – Teil 1 (ohne TR)",
   "questions": [
     {
-      "number": 1,
-      "topic": "fractions",
-      "title": "Bruchteil",
-      "prompt": "Wie viel ist 3/4 von 120?",
-      "video": "https://www.youtube.com/embed/nMAhL56Fqxk?si=99yJO3HTgDAwiZAY",
-      "answer": "90"
+      "number": "1a",
+      "topic": "algebra",
+      "title": "Termrechnung / Klammern",
+      "content": [
+        { "type": "text", "markdown": "**Berechne.** $\\big(16 - 3\\cdot(5-8)\\big)\\div(-5)$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1a.png", "alt": "Lösung zu 1a" }
+      ]
     },
     {
-      "number": 2,
-      "topic": "geometry",
-      "title": "Dreiecksfläche",
-      "prompt": "Berechne die Fläche eines Dreiecks mit b = 6 und h = 8.",
-      "video": "https://www.youtube.com/embed/nMAhL56Fqxk?si=99yJO3HTgDAwiZAY",
-      "answer": "24"
+      "number": "1b",
+      "topic": "brüche",
+      "title": "Bruchrechnung und Kürzen",
+      "content": [
+        { "type": "text", "markdown": "**Berechne und kürze so weit wie möglich.** $\\dfrac{2}{3} - \\dfrac{5}{9} : \\dfrac{25}{12}$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1b.png", "alt": "Lösung zu 1b" }
+      ]
+    },
+    {
+      "number": "1c",
+      "topic": "potenzen",
+      "title": "Potenzen anwenden",
+      "content": [
+        { "type": "text", "markdown": "**Berechne.** $(-3)^3 + 5^2 - 2\\cdot 8$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1c.png", "alt": "Lösung zu 1c" }
+      ]
+    },
+    {
+      "number": "1d",
+      "topic": "wissenschaftliche-schreibweise",
+      "title": "Zehnerpotenzen",
+      "content": [
+        { "type": "text", "markdown": "**Schreibe in wissenschaftlicher Schreibweise.** `0.0623 Billionen`" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1d.png", "alt": "Lösung zu 1d" }
+      ]
+    },
+
+    {
+      "number": "2a",
+      "topic": "algebra",
+      "title": "Rechenmauer",
+      "content": [
+        { "type": "text", "markdown": "**Berechne die fehlenden Terme in der Rechenmauer.**" },
+        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-2a.png", "alt": "Rechenmauer" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2a.png", "alt": "Lösung zu 2a" }
+      ]
+    },
+    {
+      "number": "2b",
+      "topic": "gleichungen-umformen",
+      "title": "Nach n auflösen",
+      "content": [
+        { "type": "text", "markdown": "**Löse nach $n$ auf.** $P = k\\cdot \\dfrac{n}{3}$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2b.png", "alt": "Lösung zu 2b" }
+      ]
+    },
+    {
+      "number": "2c",
+      "topic": "wurzelterme",
+      "title": "Terme vereinfachen",
+      "content": [
+        { "type": "text", "markdown": "**Vereinfache.** $\\dfrac{\\sqrt{45z^2} - (3z)}{12z^2}$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2c.png", "alt": "Lösung zu 2c" }
+      ]
+    },
+
+    {
+      "number": "3a",
+      "topic": "geometrie-vierecke",
+      "title": "Eigenschaften von Vierecken",
+      "content": [
+        { "type": "text", "markdown": "**Mache ein Kreuz, falls das Viereck die Eigenschaft besitzt.**" },
+        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-3a.png", "alt": "Tabelle Vierecke und Eigenschaften" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3a.png", "alt": "Lösung zu 3a" }
+      ]
+    },
+    {
+      "number": "3b",
+      "topic": "geometrie-vierecke",
+      "title": "Viereck identifizieren I",
+      "content": [
+        { "type": "text", "markdown": "• Nur zwei Seiten gleich lang\n• Diagonalen gleich lang\n\n**Welches Viereck?**" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3b.png", "alt": "Lösung zu 3b" }
+      ]
+    },
+    {
+      "number": "3c",
+      "topic": "geometrie-vierecke",
+      "title": "Viereck identifizieren II",
+      "content": [
+        { "type": "text", "markdown": "• Genau zwei Winkel gleich groß\n• Je zwei gleich lange Seiten bilden eine Ecke\n\n**Welches Viereck?**" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3c.png", "alt": "Lösung zu 3c" }
+      ]
+    },
+
+    {
+      "number": "4a",
+      "topic": "muster-folgen",
+      "title": "Kartenhäuser – Tabelle ergänzen",
+      "content": [
+        { "type": "text", "markdown": "**Ergänze die Tabelle.**" },
+        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-4a.png", "alt": "Kartenhäuser Abbildung & Tabelle" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-4a.png", "alt": "Lösung zu 4a" }
+      ]
+    },
+    {
+      "number": "4b",
+      "topic": "muster-folgen",
+      "title": "Allgemeiner Term",
+      "content": [
+        { "type": "text", "markdown": "**Finde einen Term für die zusätzlich nötigen Karten beim n-ten Stockwerk.**" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-4b.png", "alt": "Lösung zu 4b" }
+      ]
+    },
+
+    {
+      "number": "5a",
+      "topic": "koordinatensystem-spiegelung",
+      "title": "Dreieck spiegeln",
+      "content": [
+        { "type": "text", "markdown": "Zeichne $A(0|0)$, $B(8|2)$, $C(2|8)$ und spiegle am Punkt $S(4|6)$." },
+        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-5a.png", "alt": "Koordinatensystem Aufgabe 5a" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5a.png", "alt": "Lösung zu 5a" }
+      ]
+    },
+    {
+      "number": "5b",
+      "topic": "koordinatensystem-spiegelung",
+      "title": "Bildpunkt bei verschobenem S",
+      "content": [
+        { "type": "text", "markdown": "**S um 3 Einheiten nach rechts verschoben. Welche Koordinaten hat $B''$?**" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5b.png", "alt": "Lösung zu 5b" }
+      ]
+    },
+    {
+      "number": "5c",
+      "topic": "koordinatensystem-spiegelung",
+      "title": "Regel auswählen",
+      "content": [
+        { "type": "text", "markdown": "**Welche Regel stimmt?**\n- $(x+3|y+3)$\n- $(x+6|y)$\n- $(x|y+6)$\n- $(x·6|y)$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5c.png", "alt": "Lösung zu 5c" }
+      ]
+    },
+
+    {
+      "number": "6a",
+      "topic": "gleichungen",
+      "title": "Lineare Gleichung",
+      "content": [
+        { "type": "text", "markdown": "**Löse nach $x$ auf.** $4 - (2 - 2x) = 4x + 2(3x + 9)$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-6a.png", "alt": "Lösung zu 6a" }
+      ]
+    },
+    {
+      "number": "6b",
+      "topic": "bruchgleichungen",
+      "title": "Bruchgleichung",
+      "content": [
+        { "type": "text", "markdown": "**Löse nach $y$ auf.** $4(y - 3/4) = 5y - (7+7y)/3$" }
+      ],
+      "solution": [
+        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-6b.png", "alt": "Lösung zu 6b" }
+      ]
     }
   ]
 }
-

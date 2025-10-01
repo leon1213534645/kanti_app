@@ -1,15 +1,16 @@
-import AnswerBlock from "@/components/AnswerBlock";
 import TaskNav from "@/components/TaskNav";
-import VideoToggle from "@/components/VideoToggle";
 import Collapse from "@/components/Collapse";
 import AskTutor from "@/components/AskTutor";
 import { getTopic, listTopics } from "@/lib/topics";
 import { getExam, Variant } from "@/lib/exams";
 
+// NEW: block renderers
+import RichBlocks from "@/components/RichBlocks";      // renders content blocks (text/image/video)
+import SolutionBlock from "@/components/SolutionBlock"; // toggle, renders solution blocks
 
 export async function generateStaticParams() {
   const out: { slug: string; id: string }[] = [];
-  listTopics().forEach(t =>
+  listTopics().forEach((t) =>
     (t.recommended ?? []).forEach((r: any) => {
       const v: Variant = (r.variant ?? "ohne") as Variant;
       out.push({ slug: t.slug, id: `${r.year}-${v}-${r.number}` });
@@ -18,48 +19,47 @@ export async function generateStaticParams() {
   return out;
 }
 
-
-
-
 export default function PastItem({ params }: { params: { slug: string; id: string } }) {
   const topic = getTopic(params.slug);
-  if (!topic) return <div>Not found</div>;
+  if (!topic) return <div className="container">Not found</div>;
 
   // parse id → year-variant-number
   const [yearStr, variantStr, numberStr] = params.id.split("-");
   const year = Number(yearStr);
   const variant = (variantStr as Variant) || "ohne";
-  const number = Number(numberStr);
 
   // normalize recommended list with variant
   const list = (topic.recommended ?? []).map((r: any) => ({
     year: Number(r.year),
     variant: (r.variant ?? "ohne") as Variant,
-    number: Number(r.number),
+    number: String(r.number),              // <-- treat as string for "1a" etc.
   }));
 
-  const idx = list.findIndex(r => r.year === year && r.variant === variant && r.number === number);
-
-if (idx === -1) {
-  return (
-    <div className="container">
-      <h1>Aufgabe nicht gefunden</h1>
-      <p>params.id: <code>{params.id}</code></p>
-      <p>Erwartet Format: <code>YYYY-variant-number</code> (z.B. 2024-ohne-1)</p>
-      <p>Vorhandene IDs:
-        {" "}
-        {(topic.recommended ?? [])
-          .map((r: any) => `${r.year}-${r.variant ?? "ohne"}-${r.number}`)
-          .join(", ")}
-      </p>
-    </div>
+  const idx = list.findIndex(
+    (r) => r.year === year && r.variant === variant && r.number === String(numberStr)
   );
-}
-  const ref = list[idx];
-  if (!ref) return <div className="container">Aufgabe nicht gefunden.</div>;
 
+  if (idx === -1) {
+    return (
+      <div className="container">
+        <h1>Aufgabe nicht gefunden</h1>
+        <p>params.id: <code>{params.id}</code></p>
+        <p>Erwartet Format: <code>YYYY-variant-number</code> (z.B. 2024-ohne-1)</p>
+        <p>
+          Vorhandene IDs:{" "}
+          {(topic.recommended ?? [])
+            .map((r: any) => `${r.year}-${r.variant ?? "ohne"}-${r.number}`)
+            .join(", ")}
+        </p>
+      </div>
+    );
+  }
+
+  const ref = list[idx];
   const exam = getExam(ref.year, ref.variant);
-  const q = exam.questions.find(q => Number(q.number) === ref.number);
+
+  // Find question by string number (handles "1a", "2c", and plain "1")
+  const q = exam.questions.find((x) => String(x.number) === String(ref.number));
   if (!q) return <div className="container">Aufgabe nicht gefunden.</div>;
 
   const mkId = (r: any) => `${r.year}-${r.variant}-${r.number}`;
@@ -71,21 +71,15 @@ if (idx === -1) {
   return (
     <div className="container" style={{ textAlign: "left" }}>
       <h1>
-        {topic.chapter} — {topic.label}: {ref.year} • {variantLabel} • Aufgabe {q.number} — {q.title}
+        {topic.chapter} — {topic.label}: {ref.year} • {variantLabel} • Aufgabe {q.number}
+        {q.title ? ` — ${q.title}` : ""}
       </h1>
 
-      <div className="card" style={{ marginTop: 12 }}>
-        <p><strong>Aufgabe:</strong> {q.prompt}</p>
-      </div>
+      {/* NEW: render rich content blocks (markdown / math / images / video) */}
+      <RichBlocks blocks={q.content} />
 
-      {q.image && (
-        <div className="card" style={{ marginTop: 12 }}>
-          <img src={q.image} alt={`Q${q.number} prompt`} style={{ maxWidth: "100%" }} />
-        </div>
-      )}
-
-      <VideoToggle src={q.video} />
-      <AnswerBlock answer={q.answer} />
+      {/* NEW: solution toggle rendering blocks */}
+      <SolutionBlock blocks={q.solution} />
 
       <TaskNav prevHref={prev} nextHref={next} backHref={`/topics/${topic.slug}`} />
 

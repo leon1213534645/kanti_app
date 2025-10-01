@@ -1,28 +1,36 @@
-import { listYears, getExam } from "@/lib/exams";
-import { listTopics } from "@/lib/topics";
+// app/sitemap.ts
+import type { MetadataRoute } from "next";
+import { listExams, getExam } from "@/lib/exams";
 
-export default function sitemap() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-vercel-url";
-  const years = listYears();
-  const topics = listTopics();
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://YOURDOMAIN";
 
-  const urls = [
-    { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/exam`, lastModified: new Date() },
-    { url: `${base}/topics`, lastModified: new Date() },
-    ...years.flatMap(y => {
-      const e = getExam(y);
-      return [
-        { url: `${base}/exam/${y}`, lastModified: new Date() },
-        ...e.questions.map(q => ({ url: `${base}/exam/${y}/q/${q.number}`, lastModified: new Date() })),
-      ];
-    }),
-    ...topics.flatMap(t => [
-      { url: `${base}/topics/${t.slug}`, lastModified: new Date() },
-      { url: `${base}/topics/${t.slug}/summary`, lastModified: new Date() },
-      { url: `${base}/topics/${t.slug}/exercises`, lastModified: new Date() },
-      { url: `${base}/topics/${t.slug}/past-exams`, lastModified: new Date() },
-    ]),
-  ];
-  return urls;
+export default function sitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
+
+  // 1) exam index + variant pages
+  for (const ref of listExams()) {
+    // /exam/2024/ohne
+    entries.push({
+      url: `${BASE}/exam/${ref.year}/${ref.variant}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    });
+
+    // 2) individual questions
+    const exam = getExam(ref.year, ref.variant);
+    for (const q of exam.questions) {
+      entries.push({
+        url: `${BASE}/exam/${ref.year}/${ref.variant}/q/${q.number}`,
+        lastModified: new Date(),
+        changeFrequency: "yearly",
+        priority: 0.6,
+      });
+    }
+  }
+
+  // add other static pages you want indexed...
+  entries.push({ url: `${BASE}/`, lastModified: new Date(), priority: 1 });
+
+  return entries;
 }

@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 
 export default function PastIndex({ params }: { params: { slug: string } }) {
   const topic = getTopic(params.slug);
-  const first = topic?.recommended?.[0];
-  if (first) redirect(`/topics/${params.slug}/past-exams/${first.year}-${first.number}`);
+const first = topic?.recommended?.[0];
+if (first) redirect(`/topics/${params.slug}/past-exams/${first.year}-${first.variant ?? "ohne"}-${first.number}`);
   return <div className="container">Für dieses Thema sind noch keine Prüfungsaufgaben verlinkt.</div>;
 }

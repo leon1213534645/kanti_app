@@ -1,5 +1,7 @@
 {
   "year": 2024,
+  "variant": "ohne",
+
   "examTitle": "AP Mathematik 2024 – Teil 1 (ohne TR)",
   "questions": [
     {
@@ -10,7 +12,7 @@
         { "type": "text", "markdown": "**Berechne.** $\\big(16 - 3\\cdot(5-8)\\big)\\div(-5)$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1a.png", "alt": "Lösung zu 1a" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_1a.png", "alt": "Lösung zu 1a" }
       ]
     },
     {
@@ -21,7 +23,7 @@
         { "type": "text", "markdown": "**Berechne und kürze so weit wie möglich.** $\\dfrac{2}{3} - \\dfrac{5}{9} : \\dfrac{25}{12}$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1b.png", "alt": "Lösung zu 1b" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_1b_new.png", "alt": "Lösung zu 1b" }
       ]
     },
     {
@@ -29,10 +31,10 @@
       "topic": "potenzen",
       "title": "Potenzen anwenden",
       "content": [
-        { "type": "text", "markdown": "**Berechne.** $(-3)^3 + 5^2 - 2\\cdot 8$" }
+        { "type": "text", "markdown": "**Berechne.** $(-3)^3 + 5^2 - 2^4$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1c.png", "alt": "Lösung zu 1c" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_1c_new.png", "alt": "Lösung zu 1c" }
       ]
     },
     {
@@ -43,7 +45,7 @@
         { "type": "text", "markdown": "**Schreibe in wissenschaftlicher Schreibweise.** `0.0623 Billionen`" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-1d.png", "alt": "Lösung zu 1d" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_1d_new.png", "alt": "Lösung zu 1d" }
       ]
     },
 
@@ -53,7 +55,7 @@
       "title": "Rechenmauer",
       "content": [
         { "type": "text", "markdown": "**Berechne die fehlenden Terme in der Rechenmauer.**" },
-        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-2a.png", "alt": "Rechenmauer" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/Screenshot%20from%202025-10-02%2013-22-20.png", "alt": "Rechenmauer" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2a.png", "alt": "Lösung zu 2a" }
@@ -64,10 +66,11 @@
       "topic": "gleichungen-umformen",
       "title": "Nach n auflösen",
       "content": [
-        { "type": "text", "markdown": "**Löse nach $n$ auf.** $P = k\\cdot \\dfrac{n}{3}$" }
+        { "type": "text", "markdown": "**Löse nach $n$ auf.** \n\n\n\n $P = k\\cdot \\dfrac{n}{3}$" }
+      
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2b.png", "alt": "Lösung zu 2b" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_2b_new.png", "alt": "Lösung zu 2b" }
       ]
     },
     {
@@ -78,7 +81,7 @@
         { "type": "text", "markdown": "**Vereinfache.** $\\dfrac{\\sqrt{45z^2} - (3z)}{12z^2}$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-2c.png", "alt": "Lösung zu 2c" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_2c_new.png", "alt": "Lösung zu 2c" }
       ]
     },
 
@@ -88,7 +91,7 @@
       "title": "Eigenschaften von Vierecken",
       "content": [
         { "type": "text", "markdown": "**Mache ein Kreuz, falls das Viereck die Eigenschaft besitzt.**" },
-        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-3a.png", "alt": "Tabelle Vierecke und Eigenschaften" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/Screenshot%20from%202025-10-02%2013-29-26.png", "alt": "Tabelle Vierecke und Eigenschaften" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3a.png", "alt": "Lösung zu 3a" }
@@ -99,7 +102,7 @@
       "topic": "geometrie-vierecke",
       "title": "Viereck identifizieren I",
       "content": [
-        { "type": "text", "markdown": "• Nur zwei Seiten gleich lang\n• Diagonalen gleich lang\n\n**Welches Viereck?**" }
+        { "type": "text", "markdown": "**Um welches Viereck handelt es sich?**\n\n• Nur zwei Seiten gleich lang\n\n• Diagonalen gleich lang" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3b.png", "alt": "Lösung zu 3b" }
@@ -110,7 +113,7 @@
       "topic": "geometrie-vierecke",
       "title": "Viereck identifizieren II",
       "content": [
-        { "type": "text", "markdown": "• Genau zwei Winkel gleich groß\n• Je zwei gleich lange Seiten bilden eine Ecke\n\n**Welches Viereck?**" }
+        { "type": "text", "markdown": "**Um welches Viereck handelt es sich?**\n\n• Genau zwei Winkel gleich groß\n\n• Je zwei gleich lange Seiten bilden eine Ecke" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-3c.png", "alt": "Lösung zu 3c" }
@@ -123,7 +126,7 @@
       "title": "Kartenhäuser – Tabelle ergänzen",
       "content": [
         { "type": "text", "markdown": "**Ergänze die Tabelle.**" },
-        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-4a.png", "alt": "Kartenhäuser Abbildung & Tabelle" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/Screenshot%20from%202025-10-02%2013-31-10.png", "alt": "Kartenhäuser Abbildung & Tabelle" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-4a.png", "alt": "Lösung zu 4a" }
@@ -146,8 +149,8 @@
       "topic": "koordinatensystem-spiegelung",
       "title": "Dreieck spiegeln",
       "content": [
-        { "type": "text", "markdown": "Zeichne $A(0|0)$, $B(8|2)$, $C(2|8)$ und spiegle am Punkt $S(4|6)$." },
-        { "type": "image", "url": "BLOB_TBD://exams/2024/aufgabe-5a.png", "alt": "Koordinatensystem Aufgabe 5a" }
+        { "type": "text", "markdown": "Zeichne die Punkte $A(0|0)$, $B(8|2)$, $C(2|8)$ und spiegle das Dreieck ABC am Punkt $S(4|6)$, sodass das Dreieck A'B'C' entsteht." },
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/Screenshot%20from%202025-10-02%2013-34-09.png", "alt": "Koordinatensystem Aufgabe 5a" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5a.png", "alt": "Lösung zu 5a" }
@@ -158,7 +161,7 @@
       "topic": "koordinatensystem-spiegelung",
       "title": "Bildpunkt bei verschobenem S",
       "content": [
-        { "type": "text", "markdown": "**S um 3 Einheiten nach rechts verschoben. Welche Koordinaten hat $B''$?**" }
+        { "type": "text", "markdown": "Welche Koordinaten hat der Bildpunkt B'', wenn man den Spiegelpunkt S um 3 Einheiten nach rechts verschiebt und das Dreieck ABC anschliessend daran spiegelt?" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5b.png", "alt": "Lösung zu 5b" }
@@ -169,7 +172,7 @@
       "topic": "koordinatensystem-spiegelung",
       "title": "Regel auswählen",
       "content": [
-        { "type": "text", "markdown": "**Welche Regel stimmt?**\n- $(x+3|y+3)$\n- $(x+6|y)$\n- $(x|y+6)$\n- $(x·6|y)$" }
+        { "type": "text", "markdown": "**Nach welchen Regeln verändern sich die Koordinaten von 𝐴' , 𝐵' und 𝐶' zu 𝐴'' , 𝐵'' und 𝐶''? Kreuze die richtige Antwort an.**\n- $(x+3|y+3)$\n- $(x+6|y)$\n- $(x|y+6)$\n- $(x·6|y)$" }
       ],
       "solution": [
         { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-5c.png", "alt": "Lösung zu 5c" }
@@ -184,7 +187,7 @@
         { "type": "text", "markdown": "**Löse nach $x$ auf.** $4 - (2 - 2x) = 4x + 2(3x + 9)$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-6a.png", "alt": "Lösung zu 6a" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_6a_new.png", "alt": "Lösung zu 6a" }
       ]
     },
     {
@@ -192,10 +195,10 @@
       "topic": "bruchgleichungen",
       "title": "Bruchgleichung",
       "content": [
-        { "type": "text", "markdown": "**Löse nach $y$ auf.** $4(y - 3/4) = 5y - (7+7y)/3$" }
+        { "type": "text", "markdown": "**Löse nach $y$ auf.** $4(y - \\dfrac{3}{4}) = 5y - \\dfrac{7+7y}{3}$" }
       ],
       "solution": [
-        { "type": "image", "url": "BLOB_TBD://solutions/2024/sol-6b.png", "alt": "Lösung zu 6b" }
+        { "type": "image", "url": "https://ujc9oxlftxannoq8.public.blob.vercel-storage.com/2024_ohne_6c_new.png", "alt": "Lösung zu 6b" }
       ]
     }
   ]

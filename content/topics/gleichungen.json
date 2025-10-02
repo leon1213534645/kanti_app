@@ -178,8 +178,8 @@
     ]
   },
   "recommended": [
-    { "year": 2024, "variant": "ohne", "number": 1 },
-    { "year": 2024,  "variant": "ohne", "number": 2 }
+    { "year": 2024, "variant": "ohne", "number": "1a" },
+    { "year": 2024,  "variant": "ohne", "number": "1b" }
   ],
   "extraExercises": [
     { "id": "frac-001", "prompt": "51=3(2a+4)−7", "answer": "23/3", "video": "" },
